@@ -1,4 +1,12 @@
 ---
+- name: Create package unarchive directory
+  file:
+    path: "{{ go_install_directory }}"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
 - name: Download and unarchive the package
   unarchive:
     src: "{{ go_package_url }}"

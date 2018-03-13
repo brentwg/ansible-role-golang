@@ -1,5 +1,0 @@
----
-yum_repo_name: go-repo
-yum_repo_description: go-repo - CentOS
-yum_repo_baseurl: https://mirror.go-repo.io/centos/$releasever/$basearch/
-yum_repo_key_url: https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO

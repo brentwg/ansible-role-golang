@@ -18,13 +18,13 @@
 
 - name: Create symlink to downloaded version
   file:
-    src: "{{ go_install_directory }}"
+    src: "{{ go_install_directory }}/go"
     dest: "{{ go_link_path }}"
     state: link
 
 - name: Add symlink to ENV PATH variable (BASH)
   lineinfile:
-    path: "{{ go_lang_env_path }}/go"
+    path: "{{ go_lang_env_path }}"
     create: yes
     line: "export PATH=$PATH:{{ go_link_path }}/bin"
     owner: root

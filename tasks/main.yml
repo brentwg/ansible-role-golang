@@ -22,9 +22,9 @@
     dest: "{{ go_link_path }}"
     state: link
 
-- name: Add symlink to PATH environment variable (BASH)
+- name: Add symlink to ENV PATH variable (BASH)
   lineinfile:
-    path: "{{ go_lang_env_path }}"
+    path: "{{ go_lang_env_path }}/go"
     create: yes
     line: "export PATH=$PATH:{{ go_link_path }}/bin"
     owner: root

@@ -22,5 +22,8 @@ script:
   # Read /etc/profile.d/golang.sh contents
   - docker exec --tty $container_id env TERM=xterm cat /etc/profile.d/golang.sh
 
+  # Read GO symlink contents
+  - docker exec --tty $container_id env TERM=xterm ls -l /usr/local/go
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

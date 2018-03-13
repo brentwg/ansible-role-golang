@@ -1,1 +1,11 @@
 ---
+go_version: 1.10
+go_os: linux
+go_arch: amd64
+
+go_package_name: "go{{ go_version }}.{{ go_os }}-{{ go_arch }}.tar.gz"
+go_package_url: "https://dl.google.com/go/{{ go_package_name }}"
+go_install_directory: "/usr/local/go{{ go_version }}"
+go_link_path: /usr/local/go
+
+go_lang_env_path: /etc/profile.d/golang.sh

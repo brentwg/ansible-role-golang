@@ -1,1 +1,24 @@
 ---
+- name: Download and unarchive the package
+  unarchive:
+    src: "{{ go_package_url }}"
+    dest: "{{ go_install_directory }}"
+    owner: root
+    group: root
+    mode: 0755
+    remote_src: yes
+
+- name: Create symlink to downloaded version
+  file:
+    src: "{{ go_install_directory }}"
+    dest: "{{ go_link_path }}"
+    state: link
+
+- name: Add symlink to PATH environment variable (BASH)
+  lineinfile:
+    path: "{{ go_lang_env_path }}"
+    create: yes
+    line: "export PATH=$PATH:{{ go_link_path }}/bin"
+    owner: root
+    group: root
+    mode: 0644

@@ -2,7 +2,10 @@
 services: docker
 
 env:
+  - distro: centos7
   - distro: fedora27
+  - distro: ubuntu1604
+  - distro: ubuntu1710
 
 script:
   # Configure test script so we can run extra tests after playbook is run.
@@ -15,12 +18,9 @@ script:
 
   # Run tests
   - ${PWD}/tests/test.sh
-
-  # Print Go version
-  - docker exec --tty $container_id env TERM=xterm go version
-
-  # Print Go environment
-  - docker exec --tty $container_id env TERM=xterm go env
+  
+  # Read /etc/profile.d/golang.sh contents
+  - docker exec --tty $container_id env TERM=xterm cat /etc/profile.d/golang.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

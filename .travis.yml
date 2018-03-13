@@ -25,11 +25,5 @@ script:
   # Read Go symlink contents
   - docker exec --tty $container_id env TERM=xterm ls -l /usr/local/go
 
-  # Test Go version
-  - docker exec --tty $container_id env TERM=xterm go version
-
-  # Show Go env
-  - docker exec --tty $container_id env TERM=xterm go env
-
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
